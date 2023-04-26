@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Event List</title>
+</head>
+<body>
+	<h1>Upcoming Events</h1>
+	{% if events %}
+		<ul>
+			{% for event in events %}
+				<li>
+					<strong>{{ event.summary }}</strong><br>
+					{{ event.start.dateTime|date:"F j, Y g:i a" }} - {{ event.end.dateTime|date:"g:i a" }}
+				</li>
+			{% endfor %}
+		</ul>
+	{% else %}
+		<p>No events found.</p>
+	{% endif %}
+</body>
+</html>
